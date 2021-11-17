@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import ProductionLine from "./components/ProductionLine";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProductionLine />
   </React.StrictMode>,
   document.getElementById("root")
 );

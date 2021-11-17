@@ -13,9 +13,11 @@ const Station = (props) => {
     showMoveButton,
     handleVehicleStatusChange,
   } = props;
+
   return (
     <StationBox key={id}>
       <StationLabel>{label}</StationLabel>
+      {showAddButton && <Button onClick={handleAddVehicle}>Add Vehicle</Button>}
       <Vehicle
         stationId={id}
         vehicle={vehicle}
@@ -23,7 +25,6 @@ const Station = (props) => {
         showMoveButton={showMoveButton}
         handleMoveVehicle={handleMoveVehicle}
       />
-      {showAddButton && <Button onClick={handleAddVehicle}>Add Vehicle</Button>}
     </StationBox>
   );
 };

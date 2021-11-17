@@ -1,5 +1,5 @@
 import React from "react";
-import { STATUSES } from "./constants";
+import { STATUSES } from "../constants";
 import {
   VehicleContainer,
   VehicleLabel,
@@ -8,19 +8,21 @@ import {
   Button,
 } from "./styled";
 
-const Vehicle = ({
-  stationId,
-  vehicle,
-  handleVehicleStatusChange,
-  showMoveButton,
-  handleMoveVehicle,
-}) => {
+const Vehicle = (props) => {
+  const {
+    stationId,
+    vehicle,
+    handleVehicleStatusChange,
+    showMoveButton,
+    handleMoveVehicle,
+  } = props;
+
   if (!vehicle) return null;
 
   return (
     <VehicleContainer>
       <VehicleLabel>Vehicle #{vehicle.id}</VehicleLabel>
-
+      
       <VehicleSelect
         disabled={stationId === "3" || stationId === "4"}
         name="vehicle_status"

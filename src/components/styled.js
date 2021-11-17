@@ -11,10 +11,10 @@ export const ProductionLineContainer = styled.div`
 export const StationBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   background-color: lightgreen;
-  height: auto;
+  min-height: 250px;
   width: 250px;
   border-radius: 10px;
   font-family: Verdana, Geneva, sans-serif;

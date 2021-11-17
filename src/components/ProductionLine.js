@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 import { ProductionLineContainer } from "./styled";
-import { initialState, reducer } from "./state";
+import { initialState, reducer } from "../store/index";
 import Station from "./Station";
-import { STATUSES } from "./constants";
+import { STATUSES } from "../constants";
 
 const ProductionLine = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
