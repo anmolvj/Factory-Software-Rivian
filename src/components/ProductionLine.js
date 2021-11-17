@@ -23,7 +23,6 @@ const ProductionLine = () => {
 
   const shouldWeShowMoveButton = (key, value) => {
     if (
-      value.vehicle === null ||
       key === "4" ||
       value.vehicle.state === STATUSES.BLOCKED
     )
