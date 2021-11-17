@@ -21,9 +21,9 @@ export const StationContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: lightgreen;
-  min-height: 250px;
-  width: 250px;
+  background-color: lightblue;
+  min-height: 350px;
+  width: 300px;
   border-radius: 10px;
 `;
 
@@ -39,7 +39,7 @@ export const VehicleContainer = styled.div`
   background: ${(props) => (props.vehicle ? "lightgrey" : "lightpink")};
 `;
 
-export const StationLabel = styled.h3``;
+export const StationLabel = styled.h2``;
 export const VehicleLabel = styled.h3``;
 
 export const StationStatus = styled.h6``;
