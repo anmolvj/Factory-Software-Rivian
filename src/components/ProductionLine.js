@@ -3,6 +3,7 @@ import { ProductionLineContainer, Main } from "./styled";
 import { initialState, reducer } from "../store/index";
 import Station from "./Station";
 import { STATUSES } from "../constants/statuses";
+import Card from "@mui/material/Card";
 
 const ProductionLine = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -35,27 +36,25 @@ const ProductionLine = () => {
   return (
     <Main>
       <h1>EV Production Line Visualizer</h1>
-    <ProductionLineContainer>
-      
-      {Object.entries(state).map(([key, value]) =>
-        key !== "nextVehicle" ? (
-          <Station
-            {...value}
-            id={key}
-            key={key}
-            dispatch={dispatch}
-            state={state}
-            handleAddVehicle={handleAddVehicle(key)}
-            handleMoveVehicle={handleMoveVehicle(key)}
-            showAddButton={key === "1" && value.vehicle === null}
-            showMoveButton={shouldWeShowMoveButton(key, value)}
-            handleVehicleStatusChange={handleVehicleStatusChange(key)}
-          />
-        ) : null
-      )}
-    </ProductionLineContainer>
+      <Card>
+        {Object.entries(state).map(([key, value]) =>
+          key !== "nextVehicle" ? (
+            <Station
+              {...value}
+              id={key}
+              key={key}
+              dispatch={dispatch}
+              state={state}
+              handleAddVehicle={handleAddVehicle(key)}
+              handleMoveVehicle={handleMoveVehicle(key)}
+              showAddButton={key === "1" && value.vehicle === null}
+              showMoveButton={shouldWeShowMoveButton(key, value)}
+              handleVehicleStatusChange={handleVehicleStatusChange(key)}
+            />
+          ) : null
+        )}
+      </Card>
     </Main>
-
   );
 };
 

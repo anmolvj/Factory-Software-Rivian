@@ -32,8 +32,8 @@ npm test
 
 👤 **Anmol Vijayvargiya**
 
-* Website: https://www.linkedin.com/in/anmolvijayvargiya/
-* Github: [@anmolvj](https://github.com/anmolvj)
+- Website: https://www.linkedin.com/in/anmolvijayvargiya/
+- Github: [@anmolvj](https://github.com/anmolvj)
 
 ## Show your support
 
