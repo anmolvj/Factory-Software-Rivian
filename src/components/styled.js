@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  font-family: Verdana, Geneva, sans-serif;
+`;
 export const ProductionLineContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -17,7 +25,6 @@ export const StationContainer = styled.div`
   min-height: 250px;
   width: 250px;
   border-radius: 10px;
-  font-family: Verdana, Geneva, sans-serif;
 `;
 
 export const VehicleContainer = styled.div`
@@ -51,5 +58,8 @@ export const Button = styled.button`
   border: 2px solid white;
 `;
 
-export const VehicleSelect = styled.select``;
+export const VehicleSelect = styled.select`
+  margin: 10px;
+  border-radius: 5px;
+`;
 export const VehicleSelectOption = styled.option``;

@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { ProductionLineContainer } from "./styled";
+import { ProductionLineContainer, Main } from "./styled";
 import { initialState, reducer } from "../store/index";
 import Station from "./Station";
 import { STATUSES } from "../constants/statuses";
@@ -33,7 +33,10 @@ const ProductionLine = () => {
   };
 
   return (
+    <Main>
+      <h1>EV Production Line Visualizer</h1>
     <ProductionLineContainer>
+      
       {Object.entries(state).map(([key, value]) =>
         key !== "nextVehicle" ? (
           <Station
@@ -51,6 +54,8 @@ const ProductionLine = () => {
         ) : null
       )}
     </ProductionLineContainer>
+    </Main>
+
   );
 };
 
