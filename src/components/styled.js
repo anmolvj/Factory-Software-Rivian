@@ -36,7 +36,7 @@ export const VehicleContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5px;
-  background: ${(props) => (props.vehicle ? "lightgrey" : "lightpink")};
+  background: lightpink;
 `;
 
 export const StationLabel = styled.h2``;
