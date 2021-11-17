@@ -11,7 +11,7 @@ const Station = (props) => {
     handleMoveVehicle,
     showAddButton,
     showMoveButton,
-    handleVehicleStatusChange,
+    handleVehicleStatusChange
   } = props;
 
   return (

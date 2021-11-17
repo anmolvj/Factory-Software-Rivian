@@ -1,7 +1,7 @@
 import {
   addVehicleReducer,
   moveVehicleReducer,
-  updateVehicleStatusReducer,
+  updateVehicleStatusReducer
 } from "./reducers";
 
 export const initialState = {
@@ -9,7 +9,7 @@ export const initialState = {
   2: { id: 2, label: "Station 2", vehicle: null },
   3: { id: 3, label: "Station 3", vehicle: null },
   4: { id: 4, label: "On Delivery Truck", vehicle: null },
-  nextVehicle: 1,
+  nextVehicle: 1
 };
 
 export const reducer = (state, action) => {

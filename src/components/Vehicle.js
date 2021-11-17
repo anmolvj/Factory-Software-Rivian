@@ -8,7 +8,7 @@ const Vehicle = (props) => {
     vehicle,
     handleVehicleStatusChange,
     showMoveButton,
-    handleMoveVehicle,
+    handleMoveVehicle
   } = props;
 
   if (!vehicle) return null;

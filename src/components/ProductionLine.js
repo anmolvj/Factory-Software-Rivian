@@ -3,7 +3,6 @@ import { ProductionLineContainer, Main } from "./styled";
 import { initialState, reducer } from "../store/index";
 import Station from "./Station";
 import { STATUSES } from "../constants/statuses";
-import Card from "@mui/material/Card";
 
 const ProductionLine = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -18,7 +17,7 @@ const ProductionLine = () => {
     dispatch({
       type: "UPDATE_VEHICLE_STATUS",
       current_station: parseInt(key),
-      newStatus,
+      newStatus
     });
   };
 
@@ -36,7 +35,7 @@ const ProductionLine = () => {
   return (
     <Main>
       <h1>EV Production Line Visualizer</h1>
-      <Card>
+      <ProductionLineContainer>
         {Object.entries(state).map(([key, value]) =>
           key !== "nextVehicle" ? (
             <Station
@@ -53,7 +52,7 @@ const ProductionLine = () => {
             />
           ) : null
         )}
-      </Card>
+      </ProductionLineContainer>
     </Main>
   );
 };
