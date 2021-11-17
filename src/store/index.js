@@ -3,6 +3,7 @@ import {
   moveVehicleReducer,
   updateVehicleStatusReducer
 } from "./reducers";
+import { ACTIONS } from "../constants/actions";
 
 export const initialState = {
   1: { id: 1, label: "Station 1", vehicle: null },
@@ -14,11 +15,11 @@ export const initialState = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_VEHICLE":
+    case ACTIONS.ADD_VEHICLE:
       return addVehicleReducer(state);
-    case "MOVE_VEHICLE":
+    case ACTIONS.MOVE_VEHICLE:
       return moveVehicleReducer(state, action.current_station);
-    case "UPDATE_VEHICLE_STATUS":
+    case ACTIONS.UPDATE_VEHICLE_STATUS:
       return updateVehicleStatusReducer(
         state,
         action.current_station,
