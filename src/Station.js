@@ -1,30 +1,10 @@
 import React from "react";
-import { STATUSES } from "./constants";
 import {
   StationBox,
   StationLabel,
   Button,
-  VehicleContainer,
-  VehicleLabel,
-  VehicleSelect,
-  VehicleSelectOption,
-} from "./StyledComponents";
-
-const Vehicle = ({ stationId, vehicle, handleVehicleStatusChange }) => {
-  return (
-    vehicle && (
-      <VehicleContainer>
-        <VehicleLabel>Vehicle #{vehicle.id}</VehicleLabel>
-
-        <VehicleSelect disabled={stationId === "3" || stationId === "4"}name="vehicle_status" id="vehicle_status" onChange={event => handleVehicleStatusChange(event.target.value)}>
-          {Object.entries(STATUSES).map(([key, value]) => (
-            <VehicleSelectOption value={key} selected={vehicle.state === value}>{value}</VehicleSelectOption>
-          ))}
-        </VehicleSelect>
-      </VehicleContainer>
-    )
-  );
-};
+} from "./styled";
+import Vehicle from "./Vehicle"
 
 const Station = (props) => {
   const {

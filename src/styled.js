@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductionLine = styled.div`
+export const ProductionLineContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100vw;

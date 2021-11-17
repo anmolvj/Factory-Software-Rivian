@@ -31,9 +31,12 @@ const addVehicleReducer = (state) => {
 const updateVehicleStatusReducer = (state, station, newState) => {
   return {
     ...state,
-    [station]: {...state[station], vehicle: {...state[station].vehicle, state: STATUSES[newState]}}
-  }
-}
+    [station]: {
+      ...state[station],
+      vehicle: { ...state[station].vehicle, state: STATUSES[newState] },
+    },
+  };
+};
 
 const moveVehicleReducer = (state, current_station) => {
   const next_station = parseInt(current_station) + 1;
@@ -56,7 +59,11 @@ export const reducer = (state, action) => {
     case "MOVE_VEHICLE":
       return moveVehicleReducer(state, action.current_station);
     case "UPDATE_VEHICLE_STATUS":
-      return updateVehicleStatusReducer(state, action.current_station, action.newStatus)
+      return updateVehicleStatusReducer(
+        state,
+        action.current_station,
+        action.newStatus
+      );
     default:
       throw new Error();
   }
