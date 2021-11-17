@@ -8,7 +8,6 @@
 
 > A visualizer for tracking production of EV's
 
-### ✨ [Demo](http://localhost:3000/)
 
 ## Challenge Instructions
 [Take Home Challenge Instructions](https://github.com/anmolvj/Factory-Software-Rivian/blob/main/Take%20Home%20Challenge%20Instructions.pdf)
