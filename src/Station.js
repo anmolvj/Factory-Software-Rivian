@@ -10,13 +10,13 @@ import {
   VehicleSelectOption,
 } from "./StyledComponents";
 
-const Vehicle = ({ vehicle, handleVehicleStatusChange }) => {
+const Vehicle = ({ stationId, vehicle, handleVehicleStatusChange }) => {
   return (
     vehicle && (
       <VehicleContainer>
         <VehicleLabel>Vehicle #{vehicle.id}</VehicleLabel>
 
-        <VehicleSelect name="vehicle_status" id="vehicle_status" onChange={event => handleVehicleStatusChange(event.target.value)}>
+        <VehicleSelect disabled={stationId === "3" || stationId === "4"}name="vehicle_status" id="vehicle_status" onChange={event => handleVehicleStatusChange(event.target.value)}>
           {Object.entries(STATUSES).map(([key, value]) => (
             <VehicleSelectOption value={key} selected={vehicle.state === value}>{value}</VehicleSelectOption>
           ))}
@@ -40,7 +40,7 @@ const Station = (props) => {
   return (
     <StationBox key={id}>
       <StationLabel>{label}</StationLabel>
-      <Vehicle vehicle={vehicle} handleVehicleStatusChange={handleVehicleStatusChange}/>
+      <Vehicle stationId={id} vehicle={vehicle} handleVehicleStatusChange={handleVehicleStatusChange}/>
       {showAddButton && <Button onClick={handleAddVehicle}>Add Vehicle</Button>}
       {showMoveButton && (
         <Button onClick={handleMoveVehicle}>Move to Next Station</Button>
