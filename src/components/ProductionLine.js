@@ -3,19 +3,20 @@ import { ProductionLineContainer, Main } from "./styled";
 import { initialState, reducer } from "../store/index";
 import Station from "./Station";
 import { STATUSES } from "../constants/statuses";
+import { ACTIONS } from "../constants/actions";
 
 const ProductionLine = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleAddVehicle = (key) => () =>
-    key === "1" ? dispatch({ type: "ADD_VEHICLE" }) : null;
+    key === "1" ? dispatch({ type: ACTIONS.ADD_VEHICLE }) : null;
 
   const handleMoveVehicle = (key) => () =>
-    dispatch({ type: "MOVE_VEHICLE", current_station: parseInt(key) });
+    dispatch({ type: ACTIONS.MOVE_VEHICLE, current_station: parseInt(key) });
 
   const handleVehicleStatusChange = (key) => (newStatus) => {
     dispatch({
-      type: "UPDATE_VEHICLE_STATUS",
+      type: ACTIONS.UPDATE_VEHICLE_STATUS,
       current_station: parseInt(key),
       newStatus
     });
