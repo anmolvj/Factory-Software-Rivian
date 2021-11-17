@@ -8,7 +8,7 @@ export const ProductionLineContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
-export const StationBox = styled.div`
+export const StationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

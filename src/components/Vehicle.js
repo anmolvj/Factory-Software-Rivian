@@ -1,12 +1,6 @@
 import React from "react";
-import { STATUSES } from "../constants";
-import {
-  VehicleContainer,
-  VehicleLabel,
-  VehicleSelect,
-  VehicleSelectOption,
-  Button,
-} from "./styled";
+import { VehicleContainer, VehicleLabel, Button } from "./styled";
+import VehicleStatusSelector from "./VehicleStatusSelector";
 
 const Vehicle = (props) => {
   const {
@@ -22,19 +16,11 @@ const Vehicle = (props) => {
   return (
     <VehicleContainer>
       <VehicleLabel>Vehicle #{vehicle.id}</VehicleLabel>
-      
-      <VehicleSelect
-        disabled={stationId === "3" || stationId === "4"}
-        name="vehicle_status"
-        id="vehicle_status"
-        onChange={(event) => handleVehicleStatusChange(event.target.value)}
-      >
-        {Object.entries(STATUSES).map(([key, value]) => (
-          <VehicleSelectOption value={key} selected={vehicle.state === value}>
-            {value}
-          </VehicleSelectOption>
-        ))}
-      </VehicleSelect>
+      <VehicleStatusSelector
+        stationId={stationId}
+        vehicle={vehicle}
+        handleVehicleStatusChange={handleVehicleStatusChange}
+      />
 
       {stationId !== "4" && (
         <Button disabled={!showMoveButton} onClick={handleMoveVehicle}>

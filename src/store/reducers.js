@@ -1,5 +1,4 @@
-import { STATUSES } from "../constants";
-import {createVehicle} from "./helpers";
+import { createVehicle } from "./helpers";
 
 export const addVehicleReducer = (state) => {
   return {
@@ -9,12 +8,12 @@ export const addVehicleReducer = (state) => {
   };
 };
 
-export const updateVehicleStatusReducer = (state, station, newState) => {
+export const updateVehicleStatusReducer = (state, station, newStatus) => {
   return {
     ...state,
     [station]: {
       ...state[station],
-      vehicle: { ...state[station].vehicle, state: STATUSES[newState] },
+      vehicle: { ...state[station].vehicle, state: newStatus },
     },
   };
 };

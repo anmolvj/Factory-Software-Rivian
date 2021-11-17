@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { ProductionLineContainer } from "./styled";
 import { initialState, reducer } from "../store/index";
 import Station from "./Station";
-import { STATUSES } from "../constants";
+import { STATUSES } from "../constants/statuses";
 
 const ProductionLine = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -39,6 +39,7 @@ const ProductionLine = () => {
           <Station
             {...value}
             id={key}
+            key={key}
             dispatch={dispatch}
             state={state}
             handleAddVehicle={handleAddVehicle(key)}

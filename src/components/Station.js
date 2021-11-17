@@ -1,5 +1,5 @@
 import React from "react";
-import { StationBox, StationLabel, Button } from "./styled";
+import { StationContainer, StationLabel, Button } from "./styled";
 import Vehicle from "./Vehicle";
 
 const Station = (props) => {
@@ -15,7 +15,7 @@ const Station = (props) => {
   } = props;
 
   return (
-    <StationBox key={id}>
+    <StationContainer key={id}>
       <StationLabel>{label}</StationLabel>
       {showAddButton && <Button onClick={handleAddVehicle}>Add Vehicle</Button>}
       <Vehicle
@@ -25,7 +25,7 @@ const Station = (props) => {
         showMoveButton={showMoveButton}
         handleMoveVehicle={handleMoveVehicle}
       />
-    </StationBox>
+    </StationContainer>
   );
 };
 
