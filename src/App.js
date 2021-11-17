@@ -1,48 +1,47 @@
 import React, { useReducer } from "react";
-import { ProductionLine, StationBox } from "./StyledComponents";
+import { ProductionLine } from "./StyledComponents";
 import { initialState, reducer } from "./state";
-
-const Station = ({ id, label, status, vehicle, dispatch, state }) => {
-  return (
-    <StationBox>
-      {/* LABEL */}
-      <h3>{label}</h3>
-
-      {/* STATUS */}
-      <h5>status: {status}</h5>
-
-      {/* ADD VEHICLE */}
-      {id === "1" && vehicle === null ? (
-        <div>
-          <button onClick={() => dispatch({ type: "ADD_VEHICLE" })}>
-            Add Vehicle
-          </button>
-        </div>
-      ) : null}
-
-      {/* SHOW VEHICLE */}
-      { vehicle !== null && <h5>Vehicle #{vehicle}</h5>}
-
-      {/* ALLOW MOVE VEHICLE IF: 1. Not already in truck, 2. Next station is empty */}
-      {vehicle !== null && id !== "4" && state[parseInt(id)+1].vehicle === null && <button onClick={() => dispatch({type: "MOVE_VEHICLE", current_station: parseInt(id)})}>Move to Next Station</button>}
-      
-    </StationBox>
-  );
-};
-function App() {
+import Station from "./Station";
+import { STATUSES } from "./constants";
+const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+
+  const handleAddVehicle = (key) => () =>
+    key === "1" ? dispatch({ type: "ADD_VEHICLE" }) : null;
+    
+  const handleMoveVehicle = (key) => () =>
+    dispatch({ type: "MOVE_VEHICLE", current_station: parseInt(key) });
+
+  const handleVehicleStatusChange = (key) => (newStatus) => {
+    dispatch({type: "UPDATE_VEHICLE_STATUS", current_station: parseInt(key), newStatus})
+  }
   return (
     <div className="App">
       <ProductionLine>
         {Object.entries(state).map(([key, value]) =>
           key !== "nextVehicle" ? (
-            <Station {...value} id={key} dispatch={dispatch} state={state}/>
+            <Station
+              {...value}
+              id={key}
+              dispatch={dispatch}
+              state={state}
+              handleAddVehicle={handleAddVehicle(key)}
+              handleMoveVehicle={handleMoveVehicle(key)}
+              showAddButton={key === "1" && value.vehicle === null}
+              showMoveButton={
+                value.vehicle !== null &&
+                key !== "4" &&
+                value.vehicle.state !== STATUSES.BLOCKED &&
+                state[parseInt(key) + 1].vehicle === null
+              }
+              handleVehicleStatusChange={handleVehicleStatusChange(key)}
+            />
           ) : null
         )}
+        {console.log(state)}
       </ProductionLine>
     </div>
   );
-}
+};
 
 export default App;
