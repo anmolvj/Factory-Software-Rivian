@@ -18,9 +18,11 @@ npm i
 
 ## Usage
 
+1. Use the following command to start the app.
 ```sh
 npm start
 ```
+2. Visit `http://localhost:3000/` to check it out.
 
 ## Run tests
 
