@@ -5,10 +5,16 @@ import {
   VehicleLabel,
   VehicleSelect,
   VehicleSelectOption,
+  Button,
 } from "./styled";
 
-
-const Vehicle = ({ stationId, vehicle, handleVehicleStatusChange }) => {
+const Vehicle = ({
+  stationId,
+  vehicle,
+  handleVehicleStatusChange,
+  showMoveButton,
+  handleMoveVehicle,
+}) => {
   if (!vehicle) return null;
 
   return (
@@ -27,6 +33,12 @@ const Vehicle = ({ stationId, vehicle, handleVehicleStatusChange }) => {
           </VehicleSelectOption>
         ))}
       </VehicleSelect>
+
+      {stationId !== "4" && (
+        <Button disabled={!showMoveButton} onClick={handleMoveVehicle}>
+          Move to Next Station
+        </Button>
+      )}
     </VehicleContainer>
   );
 };

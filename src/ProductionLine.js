@@ -22,12 +22,14 @@ const ProductionLine = () => {
   };
 
   const shouldWeShowMoveButton = (key, value) => {
-    return (
-      value.vehicle !== null &&
-      key !== "4" &&
-      value.vehicle.state !== STATUSES.BLOCKED &&
-      state[parseInt(key) + 1].vehicle === null
-    );
+    if (
+      value.vehicle === null ||
+      key === "4" ||
+      value.vehicle.state === STATUSES.BLOCKED
+    )
+      return false;
+
+    return key === "3" ? true : state[parseInt(key) + 1].vehicle === null;
   };
 
   return (
